@@ -1,4 +1,4 @@
-package lld.kafka.model;
+package com.lld.kafka.model;
 
 public class MessageMetadata {
     Partition partition;

@@ -1,19 +1,11 @@
-package lld.kafka.model;
+package com.lld.kafka.model;
 
 import java.util.UUID;
 
-public class Consumer {
+public class Producer {
     String id;
-    ConsumerGroup consumerGroup;
-
-    public Consumer(ConsumerGroup consumerGroup) {
+    public Producer() {
         this.id = UUID.randomUUID().toString();
-        this.consumerGroup = consumerGroup;
-        this.consumerGroup.addConsumer(this);
-    }
-
-    public ConsumerGroup getConsumerGroup() {
-        return this.consumerGroup;
     }
 
     @Override
@@ -31,12 +23,12 @@ public class Consumer {
             return true;
         }
 
-        Consumer other = (Consumer) o;
+        Producer other = (Producer) o;
         return this.id.equals(other.id);
     }
 
     @Override
     public String toString() {
-        return this.id;
+        return "Producer-Id = " + this.id;
     }
 }

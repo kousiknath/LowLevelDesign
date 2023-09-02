@@ -1,4 +1,4 @@
-package lld.kafka.model;
+package com.lld.kafka.model;
 
 import java.util.*;
 import java.util.concurrent.locks.Lock;

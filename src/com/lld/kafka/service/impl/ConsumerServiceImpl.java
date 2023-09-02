@@ -1,11 +1,11 @@
-package lld.kafka.service.impl;
+package com.lld.kafka.service.impl;
 
-import lld.kafka.model.Consumer;
-import lld.kafka.model.Message;
-import lld.kafka.model.Partition;
-import lld.kafka.model.Topic;
-import lld.kafka.service.ConsumerGroupService;
-import lld.kafka.service.ConsumerService;
+import com.lld.kafka.model.Consumer;
+import com.lld.kafka.model.Message;
+import com.lld.kafka.model.Partition;
+import com.lld.kafka.model.Topic;
+import com.lld.kafka.service.ConsumerGroupService;
+import com.lld.kafka.service.ConsumerService;
 
 import java.util.Objects;
 

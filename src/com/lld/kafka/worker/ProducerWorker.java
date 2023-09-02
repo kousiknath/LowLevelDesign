@@ -1,10 +1,10 @@
-package lld.kafka.worker;
+package com.lld.kafka.worker;
 
-import lld.kafka.model.Message;
-import lld.kafka.model.MessageMetadata;
-import lld.kafka.model.Producer;
-import lld.kafka.model.Topic;
-import lld.kafka.service.TopicService;
+import com.lld.kafka.model.Message;
+import com.lld.kafka.model.MessageMetadata;
+import com.lld.kafka.model.Producer;
+import com.lld.kafka.model.Topic;
+import com.lld.kafka.service.TopicService;
 
 import java.util.Random;
 

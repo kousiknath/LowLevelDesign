@@ -1,6 +1,6 @@
-package lld.kafka.repository;
+package com.lld.kafka.repository;
 
-import lld.kafka.model.Topic;
+import com.lld.kafka.model.Topic;
 
 import java.util.HashMap;
 import java.util.Map;

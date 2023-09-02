@@ -1,15 +1,15 @@
-package lld.kafka;
+package com.lld.kafka;
 
-import lld.kafka.model.Consumer;
-import lld.kafka.model.ConsumerGroup;
-import lld.kafka.model.Producer;
-import lld.kafka.model.Topic;
-import lld.kafka.service.ConsumerService;
-import lld.kafka.service.TopicService;
-import lld.kafka.service.impl.ConsumerServiceImpl;
-import lld.kafka.service.impl.TopicServiceImpl;
-import lld.kafka.worker.ConsumerWorker;
-import lld.kafka.worker.ProducerWorker;
+import com.lld.kafka.model.Consumer;
+import com.lld.kafka.model.ConsumerGroup;
+import com.lld.kafka.model.Producer;
+import com.lld.kafka.model.Topic;
+import com.lld.kafka.service.ConsumerService;
+import com.lld.kafka.service.TopicService;
+import com.lld.kafka.service.impl.ConsumerServiceImpl;
+import com.lld.kafka.service.impl.TopicServiceImpl;
+import com.lld.kafka.worker.ConsumerWorker;
+import com.lld.kafka.worker.ProducerWorker;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

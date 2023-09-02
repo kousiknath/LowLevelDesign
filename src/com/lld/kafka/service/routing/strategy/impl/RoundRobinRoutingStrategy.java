@@ -1,10 +1,10 @@
-package lld.kafka.service.routing.strategy.impl;
+package com.lld.kafka.service.routing.strategy.impl;
 
-import lld.kafka.model.Message;
-import lld.kafka.model.MessageMetadata;
-import lld.kafka.model.Partition;
-import lld.kafka.model.Topic;
-import lld.kafka.service.routing.strategy.RoutingStrategy;
+import com.lld.kafka.model.Message;
+import com.lld.kafka.model.MessageMetadata;
+import com.lld.kafka.model.Partition;
+import com.lld.kafka.service.routing.strategy.RoutingStrategy;
+import com.lld.kafka.model.Topic;
 
 import java.util.Random;
 

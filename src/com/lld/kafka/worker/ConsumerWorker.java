@@ -1,8 +1,8 @@
-package lld.kafka.worker;
+package com.lld.kafka.worker;
 
-import lld.kafka.model.Consumer;
-import lld.kafka.model.Message;
-import lld.kafka.service.ConsumerService;
+import com.lld.kafka.model.Consumer;
+import com.lld.kafka.model.Message;
+import com.lld.kafka.service.ConsumerService;
 
 public class ConsumerWorker implements Runnable {
     Consumer consumer;

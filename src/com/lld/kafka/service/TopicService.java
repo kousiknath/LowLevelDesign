@@ -1,8 +1,8 @@
-package lld.kafka.service;
+package com.lld.kafka.service;
 
-import lld.kafka.model.Message;
-import lld.kafka.model.MessageMetadata;
-import lld.kafka.model.Topic;
+import com.lld.kafka.model.Message;
+import com.lld.kafka.model.MessageMetadata;
+import com.lld.kafka.model.Topic;
 
 public interface TopicService {
     Topic createTopic(String name, int numPartitions);

@@ -1,7 +1,7 @@
-package lld.kafka.service.impl;
+package com.lld.kafka.service.impl;
 
-import lld.kafka.model.*;
-import lld.kafka.service.ConsumerGroupService;
+import com.lld.kafka.model.*;
+import com.lld.kafka.service.ConsumerGroupService;
 
 public class ConsumerGroupServiceImpl implements ConsumerGroupService {
     @Override

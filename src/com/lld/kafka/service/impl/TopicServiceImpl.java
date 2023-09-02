@@ -1,12 +1,12 @@
-package lld.kafka.service.impl;
+package com.lld.kafka.service.impl;
 
-import lld.kafka.model.Message;
-import lld.kafka.model.MessageMetadata;
-import lld.kafka.model.Topic;
-import lld.kafka.repository.TopicRepository;
-import lld.kafka.service.TopicService;
-import lld.kafka.service.routing.strategy.RoutingStrategy;
-import lld.kafka.service.routing.strategy.impl.RoundRobinRoutingStrategy;
+import com.lld.kafka.model.Message;
+import com.lld.kafka.model.MessageMetadata;
+import com.lld.kafka.model.Topic;
+import com.lld.kafka.repository.TopicRepository;
+import com.lld.kafka.service.TopicService;
+import com.lld.kafka.service.routing.strategy.RoutingStrategy;
+import com.lld.kafka.service.routing.strategy.impl.RoundRobinRoutingStrategy;
 
 import java.util.Objects;
 
