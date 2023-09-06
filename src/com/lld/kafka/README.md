@@ -1,4 +1,4 @@
-<b> Design a message broker which has the following properties: </b>
+<b> Design a applicationAwareMessage broker which has the following properties: </b>
 
 1. Producers should be able to produce messages.
 2. Producers can be divided into multiple partitions.
