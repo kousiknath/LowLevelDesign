@@ -11,13 +11,11 @@ public class WritableMessage {
     private ApplicationAwareMessage applicationAwareMessage;
     private LogLevel logLevel;
     private SupportedLogMedium medium;
-    private Thread sourceThread;
 
     public WritableMessage(ApplicationAwareMessage applicationAwareMessage, LogLevel logLevel, SupportedLogMedium medium) {
         this.applicationAwareMessage = applicationAwareMessage;
         this.logLevel = logLevel;
         this.medium = medium;
-        this.sourceThread = applicationAwareMessage.getThread();
     }
 
     public SupportedLogMedium getMedium() {
@@ -27,7 +25,7 @@ public class WritableMessage {
     @Override
     public String toString() {
         return "Log Level = " + logLevel
-                + " Thread - " + sourceThread.getName()
+                + " Thread - " + applicationAwareMessage.getThread().getName()
                 + " timestamp = " + applicationAwareMessage.getTime().toString()
                 + " message = " + applicationAwareMessage.getMsg();
     }
