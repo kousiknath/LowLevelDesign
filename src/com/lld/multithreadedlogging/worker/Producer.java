@@ -24,13 +24,13 @@ public class Producer implements Runnable {
             for (int i = 0; i < 100; i++) {
                 try {
                     logger.info(new ApplicationAwareMessage("info - " + new Random().nextInt(10000),
-                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB), Thread.currentThread()));
+                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB)));
                     logger.debug(new ApplicationAwareMessage("debug - " + new Random().nextInt(10000),
-                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB), Thread.currentThread()));
+                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB)));
                     logger.warn(new ApplicationAwareMessage("warn - " + new Random().nextInt(10000),
-                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB), Thread.currentThread()));
+                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB)));
                     logger.error(new ApplicationAwareMessage("error - " + new Random().nextInt(10000),
-                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB), Thread.currentThread()));
+                            Arrays.asList(SupportedLogMedium.FILE, SupportedLogMedium.DB)));
 
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {

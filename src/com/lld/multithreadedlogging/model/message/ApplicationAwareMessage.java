@@ -1,6 +1,5 @@
 package com.lld.multithreadedlogging.model.message;
 
-import com.lld.multithreadedlogging.constant.LogLevel;
 import com.lld.multithreadedlogging.constant.SupportedLogMedium;
 
 import java.time.Instant;
@@ -16,11 +15,11 @@ public class ApplicationAwareMessage {
     private List<SupportedLogMedium> mediums;
     private Thread thread;
 
-    public ApplicationAwareMessage(String msg, List<SupportedLogMedium> mediums, Thread thread) {
+    public ApplicationAwareMessage(String msg, List<SupportedLogMedium> mediums) {
         this.msg = msg;
         this.mediums = mediums;
         this.time = Instant.now();
-        this.thread = thread;
+        this.thread = Thread.currentThread();
     }
 
     public String getMsg() {
