@@ -1,6 +1,6 @@
 package com.lld.parkinglot.src.service;
 
-import com.lld.parkinglot.exception.ServiceException;
+import com.lld.parkinglot.src.exception.ServiceException;
 import com.lld.parkinglot.src.model.*;
 import com.lld.parkinglot.src.model.vehicle.Vehicle;
 

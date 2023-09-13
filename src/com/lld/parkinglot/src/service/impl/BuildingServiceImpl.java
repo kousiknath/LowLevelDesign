@@ -1,6 +1,6 @@
 package com.lld.parkinglot.src.service.impl;
 
-import com.lld.parkinglot.exception.ServiceException;
+import com.lld.parkinglot.src.exception.ServiceException;
 import com.lld.parkinglot.src.config.DefaultSlotMapping;
 import com.lld.parkinglot.src.config.DefaultVehicleToSlotMapping;
 import com.lld.parkinglot.src.constant.SlotType;
