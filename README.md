@@ -8,6 +8,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 6. Connection Pool
 7. Parking Lot
 8. Scheduled thread pool executor
+9. Uber driver dispatch system
 
 
 # Planned (In no particular order)
@@ -25,12 +26,10 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 12. Elevator system
 13. Traffic control system
 14. IMDB
-15. Uber driver dispatch system
+15. In-memory database
 16. Notification system
 17. Online food delivery delivery fleet
 18. Vending machine
 19. Badge Swipe / Access system
 20. Crickbuzz / ESPN
 21. File System
-22. In-memory database
-24. 
