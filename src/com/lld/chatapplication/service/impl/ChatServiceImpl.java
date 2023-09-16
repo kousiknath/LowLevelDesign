@@ -38,6 +38,11 @@ public class ChatServiceImpl implements ChatService {
             throw new ServiceException("sender, group and message should be non null");
         }
 
+        if (!group.getParticipants().contains(message.getSender())) {
+            throw new ServiceException("The sender " + message.getSender().getName()
+                    + " is not a member of the group: " + group.getName());
+        }
+
         this.conversationService.addMessage(group, message);
     }
 }
