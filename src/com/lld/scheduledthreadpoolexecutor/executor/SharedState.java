@@ -1,4 +1,4 @@
-package com.lld.scheduledthreadpoolexecutor;
+package com.lld.scheduledthreadpoolexecutor.executor;
 
 import java.util.PriorityQueue;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Predicate;
 
-class SharedState {
+public class SharedState {
     private final PriorityQueue<Task> priorityQueue;
     private static final int MAX_TASKS = Integer.MAX_VALUE; // The maximum number of tasks that the priority queue can have
     private final AtomicInteger size;

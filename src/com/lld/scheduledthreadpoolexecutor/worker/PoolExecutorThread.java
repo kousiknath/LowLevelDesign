@@ -1,4 +1,7 @@
-package com.lld.scheduledthreadpoolexecutor;
+package com.lld.scheduledthreadpoolexecutor.worker;
+
+import com.lld.scheduledthreadpoolexecutor.executor.SharedState;
+import com.lld.scheduledthreadpoolexecutor.executor.Task;
 
 import java.util.concurrent.ExecutorService;
 import java.util.function.Predicate;

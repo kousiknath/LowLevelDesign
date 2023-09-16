@@ -1,9 +1,9 @@
-package com.lld.scheduledthreadpoolexecutor;
+package com.lld.scheduledthreadpoolexecutor.executor;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-class Task {
+public class Task {
     private String  id;
     private Runnable runnable;
     private int initialDelay;

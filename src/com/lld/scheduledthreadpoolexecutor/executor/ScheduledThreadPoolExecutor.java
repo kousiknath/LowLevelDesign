@@ -1,4 +1,6 @@
-package com.lld.scheduledthreadpoolexecutor;
+package com.lld.scheduledthreadpoolexecutor.executor;
+
+import com.lld.scheduledthreadpoolexecutor.worker.PoolExecutorThread;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
