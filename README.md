@@ -10,6 +10,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 8. Scheduled thread pool executor
 9. Uber driver dispatch system
 10. Chat application
+11. Notification system
 
 
 # Planned (In no particular order)
@@ -28,10 +29,8 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 13. Traffic control system
 14. IMDB
 15. In-memory database
-16. Notification system
+16. Database Sharding Simulation
 17. Online food delivery delivery fleet
 18. Vending machine
 19. Badge Swipe / Access system
 20. Crickbuzz / ESPN
-21. Database Sharding Simulation
-22. 
