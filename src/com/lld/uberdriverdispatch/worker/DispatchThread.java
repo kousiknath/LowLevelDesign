@@ -40,8 +40,9 @@ public class DispatchThread implements Runnable {
 
     private void dispatch(RideRequest request) throws InterruptedException, ExecutionException {
         List<Driver> drivers = this.driverService.fetchNearbyDrivers(request.getLocation());
+        DriverThreadSharedState sharedState = new DriverThreadSharedState();
         List<DriverThread> driverThreads = drivers.stream()
-                .map(d -> new DriverThread(d, new DriverThreadSharedState())).toList();
+                .map(d -> new DriverThread(d, sharedState)).toList();
         List<Future<DriverAcceptanceResult>> results = this.executorService.invokeAll(driverThreads);
 
         try {

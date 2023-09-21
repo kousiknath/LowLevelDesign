@@ -30,7 +30,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 14. IMDB
 15. In-memory database
 16. Database Sharding Simulation
-17. Online food delivery delivery fleet
+17. Online food delivery fleet
 18. Vending machine
 19. Badge Swipe / Access system
 20. Crickbuzz / ESPN
