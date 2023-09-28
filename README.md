@@ -11,6 +11,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 9. Uber driver dispatch system
 10. Chat application
 11. Notification system
+12. Leetcode / Hackerrank like online judge
 
 
 # Planned (In no particular order)
@@ -21,8 +22,8 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 5. LinkedIn Job board
 6. API Rate Limiter
 7. Git version control
-8. YouTube
-9. Hackerrank like online judge
+8. YouTube 
+9. Crickbuzz / ESPN
 10. Leaderboard in online competition
 11. Splitwise
 12. Elevator system
@@ -33,4 +34,3 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 17. Online food delivery fleet
 18. Vending machine
 19. Badge Swipe / Access system
-20. Crickbuzz / ESPN
