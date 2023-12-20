@@ -8,7 +8,8 @@ public class CronField {
     // Here we will store the occurrences of this cronField.
 
     private List<Integer> items;
-    CronFieldType type;
+    private CronFieldType type;
+    private String fieldString;
     public CronField(CronFieldType type) {
         items = new ArrayList<>();
         this.type = type;
@@ -32,7 +33,9 @@ public class CronField {
     private static CronField parseField(String value, CronFieldType type) {
         // VALIDATION
         if (value.isEmpty() || value.isBlank()) throw new IllegalArgumentException("Value should not be empty");
+
         CronField f = new CronField(type);
+        f.fieldString = value;
         // HANDLE COMMA
         String[] fields = value.split(",");
         for (String field : fields) {
@@ -134,7 +137,6 @@ public class CronField {
 
     public static CronField parseDayOfWeek(String field) {
         return parseField(field, CronFieldType.DAY_OF_WEEK);
-
     }
 
     private static void setRange(CronField f, Range r) {
