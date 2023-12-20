@@ -52,4 +52,8 @@ public class CronExpression {
         }
         return res.toString();
     }
+
+    public CronField[] getFields() {
+        return fields;
+    }
 }
