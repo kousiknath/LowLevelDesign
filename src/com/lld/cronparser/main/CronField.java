@@ -1,6 +1,5 @@
-package com.lld.cronparser.model;
+package com.lld.cronparser.main;
 
-import java.time.temporal.ValueRange;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,7 @@ public class CronField {
 
     // Here we will store the occurrences of this cronField.
 
-    List<Integer> items = new ArrayList<>();
+    private List<Integer> items;
     CronFieldType type;
     public CronField(CronFieldType type) {
         items = new ArrayList<>();
@@ -20,19 +19,22 @@ public class CronField {
         return type + " : " + items;
     }
 
+    public List<Integer> getItems() {
+        return items;
+    }
+
     /*
-        Now we have split the work into specific fields, we can now do something.
-        Each field can have [",", "/", "*", "-"]
+            Now we have split the work into specific fields, we can now do something.
+            Each field can have [",", "/", "*", "-"]
 
 
-         */
+             */
     private static CronField parseField(String value, CronFieldType type) {
         // VALIDATION
         if (value.isEmpty() || value.isBlank()) throw new IllegalArgumentException("Value should not be empty");
         CronField f = new CronField(type);
         // HANDLE COMMA
         String[] fields = value.split(",");
-        // 1-20/5,30-45/5
         for (String field : fields) {
             // HANDLE SLASH WHICH GIVES STEP INFORMATION.
             // slashes can be combined with ranges to specify step values
@@ -46,23 +48,24 @@ public class CronField {
                 setRange(f, r);
             }
             else {
-                // there is step.
+                // 1/15, */15
+                // 1-20/5,30-45/5
                 String rangeStr = field.substring(0, slashPos);
                 String step = field.substring(slashPos + 1);
                 Range range = parseRange(rangeStr, type);
                 // 1 => It means start from 1 and go till end., it should populate things properly.
                 int hyphenPos = rangeStr.indexOf('-');
                 // TODO: I don't think this below piece of code is needed.
-//                if (hyphenPos == -1) {
-//                    // it is just 1 value, along with step, you need to start from 1 and keep going
-//                    // until you exhaust the type.
-//                    // TODO: I don't know how this will populated in particular cases, will see when we come to it.
-//                    range = new Range(range.getMinSmallest(), type.getRange().getMaxLargest());
-//                    // setRange(f, range);
-//                }
+                if (hyphenPos == -1) {
+                    // 1 value, along with step => You need to start from start and keep going till end.
+                    range = new Range(range.getMinSmallest(), type.getRange().getMaxLargest());
+                }
                 int delta = Integer.parseInt(step);
                 if (delta <= 0) {
                     throw new IllegalArgumentException("Step is less than 0");
+                }
+                if(delta >= type.getRange().getMaxLargest()) {
+                    throw new IllegalArgumentException("Step is greater than type range");
                 }
                 setRange(f, range, delta);
             }

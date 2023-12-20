@@ -1,8 +1,6 @@
 package com.lld.cronparser;
 
-import com.lld.cronparser.model.CronExpression;
-
-import java.util.ArrayList;
+import com.lld.cronparser.main.CronExpression;
 
 public class MainApplication {
     public static void main(String[] args) {

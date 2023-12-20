@@ -1,6 +1,4 @@
-package com.lld.cronparser.model;
-
-import java.util.Arrays;
+package com.lld.cronparser.main;
 
 public class CronExpression {
     CronField[] fields;

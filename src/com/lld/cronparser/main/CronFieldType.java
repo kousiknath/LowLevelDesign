@@ -1,4 +1,4 @@
-package com.lld.cronparser.model;
+package com.lld.cronparser.main;
 
 public enum CronFieldType {
 
