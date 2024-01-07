@@ -6,11 +6,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class InMemoryStorage implements IStorage {
-    private ConcurrentHashMap<String, String> _storage;
+    private ConcurrentHashMap<String, String> storage;
     private static ReentrantLock lock;
 
     public InMemoryStorage() {
-        _storage = new ConcurrentHashMap<>();
+        storage = new ConcurrentHashMap<>();
         // fairness: first come, first served.
         lock = new ReentrantLock(true);
     }
@@ -20,13 +20,10 @@ public class InMemoryStorage implements IStorage {
         lock.lock();
         try {
             // access _storage. do not allow an exception here.
-            _storage.put(key, value);
-        }
-        catch (Exception ex)
-        {
+            storage.put(key, value);
+        } catch (Exception ex) {
             return false;
-        }
-        finally {
+        } finally {
             lock.unlock();
         }
         return true;
@@ -34,9 +31,8 @@ public class InMemoryStorage implements IStorage {
 
     @Override
     public String get(String key) {
-        if(_storage.containsKey(key))
-        {
-            return _storage.get(key);
+        if (storage.containsKey(key)) {
+            return storage.get(key);
         }
         return null;
     }
@@ -46,21 +42,17 @@ public class InMemoryStorage implements IStorage {
         lock.lock();
         try {
             // access _storage. do not allow an exception here.
-            _storage.remove(key);
-        }
-        catch (Exception ex)
-        {
+            storage.remove(key);
+        } catch (Exception ex) {
             return false;
-        }
-        finally {
+        } finally {
             lock.unlock();
         }
         return true;
     }
 
     @Override
-    public int count()
-    {
-        return _storage.size();
+    public int count() {
+        return storage.size();
     }
 }
