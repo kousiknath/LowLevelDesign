@@ -6,27 +6,24 @@ import com.lld.inmemorycache.model.IStorage;
 
 public class Cache extends AbstractCache {
 
-    public Cache(IStorage storage, IEvictionPolicy evictionPolicy, int capacity)
-    {
+    public Cache(IStorage storage, IEvictionPolicy evictionPolicy, int capacity) {
         this.storage = storage;
         this.evictionPolicy = evictionPolicy;
         this.capacity = capacity;
     }
+
     @Override
     public boolean put(String key, String value) {
-        if(key == null || value == null)
+        if (key == null || value == null)
             return false;
-        if(storage.count() >= capacity)
-        {
+        if (storage.size() >= capacity) {
             // we need to evict keys because the capacity is full.
             String keyToEvict = evictionPolicy.getKeyToEvict();
             boolean status = storage.remove(keyToEvict);
-            if(status)
-            {
+            if (status) {
                 // eviction complete.
                 evictionPolicy.keyEvicted(keyToEvict);
-            }
-            else {
+            } else {
                 // eviction failed.
                 // Multiple options here:
                 // 1. throw exception: not a good option perf wise to throw exceptions.
@@ -46,7 +43,13 @@ public class Cache extends AbstractCache {
     // Returns null if Key is not found.
     @Override
     public String get(String key) {
-        return storage.get(key);
+        String value = storage.get(key);
+        // no point updating statistics for a key that is not present.
+        // in future maybe we can get some information out of it but for now, skipping it.
+        if (value != null) {
+            evictionPolicy.keyAccessed(key);
+        }
+        return value;
     }
 
     @Override
