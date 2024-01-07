@@ -1,12 +1,12 @@
-package com.lld.inmemorycache.model.impl;
+package com.lld.inmemorycache.service.impl;
 
-import com.lld.inmemorycache.model.AbstractCache;
-import com.lld.inmemorycache.model.IEvictionPolicy;
-import com.lld.inmemorycache.model.IStorage;
+import com.lld.inmemorycache.service.AbstractCache;
+import com.lld.inmemorycache.service.EvictionPolicy;
+import com.lld.inmemorycache.service.Storage;
 
 public class Cache extends AbstractCache {
 
-    public Cache(IStorage storage, IEvictionPolicy evictionPolicy, int capacity) {
+    public Cache(Storage storage, EvictionPolicy evictionPolicy, int capacity) {
         this.storage = storage;
         this.evictionPolicy = evictionPolicy;
         this.capacity = capacity;

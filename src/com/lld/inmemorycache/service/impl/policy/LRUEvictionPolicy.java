@@ -1,14 +1,14 @@
-package com.lld.inmemorycache.model.impl;
+package com.lld.inmemorycache.service.impl.policy;
 
 import com.lld.inmemorycache.model.DoublyLinkedList;
-import com.lld.inmemorycache.model.IEvictionPolicy;
+import com.lld.inmemorycache.service.EvictionPolicy;
 import com.lld.inmemorycache.model.Node;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class LRUEvictionPolicy implements IEvictionPolicy {
+public class LRUEvictionPolicy implements EvictionPolicy {
     private DoublyLinkedList keys;
     private HashMap<String, Node> mapper;
 

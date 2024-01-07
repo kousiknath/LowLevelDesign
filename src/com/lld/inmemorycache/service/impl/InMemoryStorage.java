@@ -1,11 +1,10 @@
-package com.lld.inmemorycache.model.impl;
+package com.lld.inmemorycache.service.impl;
 
-import com.lld.inmemorycache.model.IStorage;
-
+import com.lld.inmemorycache.service.Storage;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class InMemoryStorage implements IStorage {
+public class InMemoryStorage implements Storage {
     private ConcurrentHashMap<String, String> storage;
     private static ReentrantLock lock;
 

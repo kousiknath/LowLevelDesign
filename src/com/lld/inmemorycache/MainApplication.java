@@ -1,9 +1,9 @@
 package com.lld.inmemorycache;
 
-import com.lld.inmemorycache.model.IEvictionPolicy;
-import com.lld.inmemorycache.model.impl.Cache;
-import com.lld.inmemorycache.model.impl.InMemoryStorage;
-import com.lld.inmemorycache.model.impl.LRUEvictionPolicy;
+import com.lld.inmemorycache.service.EvictionPolicy;
+import com.lld.inmemorycache.service.impl.Cache;
+import com.lld.inmemorycache.service.impl.InMemoryStorage;
+import com.lld.inmemorycache.service.impl.policy.LRUEvictionPolicy;
 
 import java.util.Objects;
 
@@ -12,7 +12,7 @@ public class MainApplication {
     public static void main(String[] args)
     {
         InMemoryStorage inMemoryStorage = new InMemoryStorage();
-        IEvictionPolicy lruEvictionPolicy = new LRUEvictionPolicy();
+        EvictionPolicy lruEvictionPolicy = new LRUEvictionPolicy();
         Cache cache = new Cache(inMemoryStorage, lruEvictionPolicy, 2);
 
         // Test 1
