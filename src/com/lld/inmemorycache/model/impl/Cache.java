@@ -54,6 +54,11 @@ public class Cache extends AbstractCache {
 
     @Override
     public boolean remove(String key) {
-        return storage.remove(key);
+
+        boolean status = storage.remove(key);
+        if (status) {
+            evictionPolicy.keyEvicted(key);
+        }
+        return status;
     }
 }
