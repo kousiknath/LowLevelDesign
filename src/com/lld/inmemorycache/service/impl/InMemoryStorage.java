@@ -30,10 +30,7 @@ public class InMemoryStorage implements Storage {
 
     @Override
     public String get(String key) {
-        if (storage.containsKey(key)) {
-            return storage.get(key);
-        }
-        return null;
+        return storage.get(key);
     }
 
     @Override
