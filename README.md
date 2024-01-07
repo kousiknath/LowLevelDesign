@@ -12,6 +12,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 10. Chat application
 11. Notification system
 12. Leetcode / Hackerrank like online judge
+13. InMemoryCache with LRU eviction policy.
 
 
 # Planned (In no particular order)
