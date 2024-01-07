@@ -52,7 +52,7 @@ public class InMemoryStorage implements IStorage {
     }
 
     @Override
-    public int count() {
+    public int size() {
         return storage.size();
     }
 }
