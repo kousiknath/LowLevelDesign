@@ -12,13 +12,15 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 10. Chat application
 11. Notification system
 12. Leetcode / Hackerrank like online judge
+13. IMDB
+14. Amazon order checkout flow
 
 
 # Planned (In no particular order)
 1. File System
 2. Social media news feed
-3. Amazon order management
-4. Payment system
+3. Skyscanner Flights
+4. Stripe
 5. LinkedIn Job board
 6. API Rate Limiter
 7. Git version control
@@ -28,9 +30,18 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 11. Splitwise
 12. Elevator system
 13. Traffic control system
-14. IMDB
+14. Badge Swipe / Access system
 15. In-memory database
 16. Database Sharding Simulation
 17. Online food delivery fleet
 18. Vending machine
-19. Badge Swipe / Access system
+19. Airbnb
+20. Airport Management System
+21. Uber ride matching system
+22. Stack Overflow
+23. Zerodha
+24. Rule Engine
+25. PubSub system
+26. Task Management System
+27. RedBus
+28. 
