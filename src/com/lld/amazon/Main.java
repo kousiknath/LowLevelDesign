@@ -59,6 +59,7 @@ public class Main {
 
         Payment payment = orderService.pay(order);
         System.out.println("Payment status: " + payment.getPaymentStatus());
+        System.out.println("Order placed with order id: " + order.getId());
     }
 
     private static Product getProduct1(PricingService pricingService) throws PricingException {

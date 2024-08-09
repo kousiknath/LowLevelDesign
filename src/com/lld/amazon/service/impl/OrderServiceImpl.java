@@ -41,6 +41,7 @@ public class OrderServiceImpl implements OrderService {
         // Order service should talk to payment service here
         // Depending on the result, mark success or failure
         order.getPayment().markPaymentSuccess();
+        // Update order state here through state machine mechanism
         return order.getPayment();
     }
 }
