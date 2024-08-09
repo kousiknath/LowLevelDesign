@@ -1,7 +1,5 @@
 package com.lld.amazon.model;
 
-import com.lld.amazon.constant.PricingLineItemType;
-
 import java.util.Objects;
 
 /*
@@ -10,22 +8,18 @@ import java.util.Objects;
  */
 public class PricingLineItem {
     private String name;
-    // If `amount` is specified, it will be directly used
-    // for computation
-    private Double amount;
     // If `amount` is unspecified, `percentageOfBaseAmount`
+    private Money amount;
     // will be used
     private Double percentageOfBaseAmount;
-    private String currencySymbol;
 
-    public PricingLineItem(String name, Double amount, String currencySymbol, Double percentageOfBaseAmount) {
+    public PricingLineItem(String name, Money amount, Double percentageOfBaseAmount) {
         this.name = name;
         this.amount = amount;
-        this.currencySymbol = currencySymbol;
         this.percentageOfBaseAmount = percentageOfBaseAmount;
     }
 
-    public Double getAmount() {
+    public Money getAmount() {
         return amount;
     }
 
@@ -33,13 +27,9 @@ public class PricingLineItem {
         return percentageOfBaseAmount;
     }
 
-    public String getCurrencySymbol() {
-        return currencySymbol;
-    }
-
     @Override
     public int hashCode() {
-        return Objects.hash(name, currencySymbol);
+        return Objects.hash(name, this.amount.getCurrencySymbol().name());
     }
 
     @Override
@@ -54,6 +44,6 @@ public class PricingLineItem {
 
         PricingLineItem o = (PricingLineItem) other;
         return this.name.equals(o.name)
-                && this.currencySymbol.equals(o.currencySymbol);
+                && this.amount.getCurrencySymbol().name().equals(o.amount.getCurrencySymbol().name());
     }
 }

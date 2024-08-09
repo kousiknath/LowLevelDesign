@@ -45,8 +45,7 @@ public class PricingServiceImpl implements PricingService {
             throw new PricingException("Amount can not be null");
         }
 
-        PricingLineItem pricingLineItem = new PricingLineItem(lineItemName, money.getAmount(),
-                money.getCurrencySymbol().name(), null);
+        PricingLineItem pricingLineItem = new PricingLineItem(lineItemName, money, null);
         pricingGroup.addPricingLineItem(pricingLineItem, baseGroup);
 
         return pricingGroup;
@@ -76,8 +75,7 @@ public class PricingServiceImpl implements PricingService {
             throw new PricingException("Percentage of base amount can not be null");
         }
 
-        PricingLineItem pricingLineItem = new PricingLineItem(lineItemName, null, money.getCurrencySymbol().name(),
-                percentageOfBaseAmount);
+        PricingLineItem pricingLineItem = new PricingLineItem(lineItemName, money, percentageOfBaseAmount);
         pricingGroup.addPricingLineItem(pricingLineItem, baseGroup);
 
         return pricingGroup;

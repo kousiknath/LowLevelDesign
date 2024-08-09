@@ -1,5 +1,6 @@
 package com.lld.amazon.model;
 
+import com.lld.amazon.constant.CurrencySymbol;
 import com.lld.amazon.constant.PricingGroupType;
 import com.lld.amazon.exception.PricingException;
 
@@ -58,12 +59,12 @@ public class PricingGroup {
 
     private Double calculateTotal(PricingGroup baseGroup) throws PricingException {
         Double amount = 0D;
-        String symbol = null;
+        CurrencySymbol symbol = null;
 
         for (PricingLineItem lineItem: pricingLineItems) {
             if (symbol == null) {
-                symbol = lineItem.getCurrencySymbol();
-            } else if (!symbol.equals(lineItem.getCurrencySymbol())) {
+                symbol = lineItem.getAmount().getCurrencySymbol();
+            } else if (!symbol.equals(lineItem.getAmount().getCurrencySymbol())) {
                 throw new PricingException("Inconsistent symbols in pricing line items");
             }
 
@@ -81,8 +82,8 @@ public class PricingGroup {
                 }
             }
 
-            if (lineItem.getAmount() != null) {
-                amount += lineItem.getAmount();
+            if (lineItem.getAmount() != null && lineItem.getAmount().getAmount() != null) {
+                amount += lineItem.getAmount().getAmount();
             } else if (lineItem.getPercentageOfBaseAmount() != null) {
                 amount = amount + baseGroup.totalAmount * lineItem.getPercentageOfBaseAmount() * 0.01;
             }
