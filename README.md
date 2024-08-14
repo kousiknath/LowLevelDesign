@@ -14,6 +14,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 12. Leetcode / Hackerrank like online judge
 13. IMDB
 14. Amazon order checkout flow
+15. Meeting Room Scheduler
 
 
 # Planned (In no particular order)
@@ -44,4 +45,4 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 25. PubSub system
 26. Task Management System
 27. RedBus
-28. 
+29. 
