@@ -15,6 +15,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 13. IMDB
 14. Amazon order checkout flow
 15. Meeting Room Scheduler
+16. Leaderboard
 
 
 # Planned (In no particular order)
@@ -26,8 +27,8 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 6. API Rate Limiter
 7. Git version control
 8. YouTube 
-9. Crickbuzz / ESPN
-10. Leaderboard in online competition
+9. Crickbuzz / ESPN 
+10. RedBus
 11. Splitwise
 12. Elevator system
 13. Traffic control system
@@ -44,5 +45,4 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 24. Rule Engine
 25. PubSub system
 26. Task Management System
-27. RedBus
 29. 
