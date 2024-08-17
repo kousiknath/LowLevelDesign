@@ -16,6 +16,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 14. Amazon order checkout flow
 15. Meeting Room Scheduler
 16. Leaderboard
+17. Elevator
 
 
 # Planned (In no particular order)
@@ -30,7 +31,6 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 9. Crickbuzz / ESPN 
 10. RedBus
 11. Splitwise
-12. Elevator system
 13. Traffic control system
 14. Badge Swipe / Access system
 15. In-memory database
@@ -45,4 +45,4 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 24. Rule Engine
 25. PubSub system
 26. Task Management System
-29. 
+29. Snake and Ladder
