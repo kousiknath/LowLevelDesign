@@ -17,6 +17,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 15. Meeting Room Scheduler
 16. Leaderboard
 17. Elevator
+18. Stock Broker (Zerodha)
 
 
 # Planned (In no particular order)
@@ -41,8 +42,9 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 20. Airport Management System
 21. Uber ride matching system
 22. Stack Overflow
-23. Zerodha
+23. Auction system
 24. Rule Engine
 25. PubSub system
 26. Task Management System
 29. Snake and Ladder
+30. 
