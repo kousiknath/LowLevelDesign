@@ -1,5 +1,7 @@
 # LowLevelDesign
 Various Low Level Object-Oriented System Design problems are discussed in this space.
+
+## Already Implemented
 1. Message broker like Kafka
 2. Google calendar
 3. BookMyShow
@@ -20,7 +22,7 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 18. Stock Broker (Zerodha)
 
 
-# Planned (In no particular order)
+## Planned (In no particular order)
 1. File System
 2. Social media news feed
 3. Skyscanner Flights
