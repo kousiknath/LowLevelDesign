@@ -1,6 +1,7 @@
 package com.lld.stockbroker.service.impl;
 
 import com.lld.stockbroker.constant.AssetType;
+import com.lld.stockbroker.constant.OrderStatus;
 import com.lld.stockbroker.exception.PortfolioException;
 import com.lld.stockbroker.model.*;
 import com.lld.stockbroker.repository.OrderRepository;
@@ -35,8 +36,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order executeSell(OrderData orderData, User user) {
-        return null;
+    public Order executeSell(OrderData orderData, User user) throws PortfolioException {
+        if (orderData == null || user == null) {
+            throw new PortfolioException("Invalid data or user");
+        }
+
+        return this.orderRepository.addToOrder(orderData.getAssetType(),
+                new EquityHoldingEntry(
+                        orderData.getCompany(),
+                        -1 * orderData.getBuyingStrategy().getQuantity(),
+                        -1 * orderData.getBuyingStrategy().getAmount()),
+                user);
     }
 }
 
@@ -69,6 +79,11 @@ class OrderExecutor implements Runnable {
                 for (User user : orders.keySet()) {
                     Map<AssetType, Order> mixedOrders = orders.get(user);
                     for (Order order : mixedOrders.values()) {
+                        if (order.getOrderStatus() == OrderStatus.EXECUTED) {
+                            // Don't execute the order just in case it's a duplicate
+                            continue;
+                        }
+
                         // Call Exchange API.
                         order.markOrderExecuted();
 

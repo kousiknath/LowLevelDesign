@@ -1,6 +1,8 @@
 package com.lld.stockbroker.service.impl;
 
 import com.lld.stockbroker.constant.AssetType;
+import com.lld.stockbroker.constant.OrderType;
+import com.lld.stockbroker.exception.NotImplementedException;
 import com.lld.stockbroker.exception.PortfolioException;
 import com.lld.stockbroker.model.*;
 import com.lld.stockbroker.repository.PortfolioRepository;
@@ -29,7 +31,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 
     @Override
     public Holding addToEquityHolding(AssetType assetType, Company company, Integer quantity, Double investedAmount, User user)
-            throws PortfolioException {
+            throws PortfolioException, NotImplementedException {
         if (assetType == null || company == null || quantity == null || investedAmount == null || user == null) {
             throw new PortfolioException("Invalid data!");
         }
@@ -44,7 +46,32 @@ public class PortfolioServiceImpl implements PortfolioService {
 
     @Override
     public Order buy(OrderData orderData, User user) throws PortfolioException {
+        this.portfolioRepository.addToPosition(
+                orderData.getAssetType(),
+                orderData.getCompany().getCompanyTicker().getStockSymbol(),
+                OrderType.BUY,
+                new EquityPositionEntry(
+                        orderData.getCompany(),
+                        orderData.getBuyingStrategy().getQuantity(),
+                        orderData.getBuyingStrategy().getAmount()),
+                user);
+
         return this.orderService.executeBuy(orderData, user);
+    }
+
+    @Override
+    public Order sell(OrderData orderData, User user) throws PortfolioException {
+        this.portfolioRepository.addToPosition(
+                orderData.getAssetType(),
+                orderData.getCompany().getCompanyTicker().getStockSymbol(),
+                OrderType.SELL,
+                new EquityPositionEntry(
+                        orderData.getCompany(),
+                        orderData.getBuyingStrategy().getQuantity(),
+                        orderData.getBuyingStrategy().getAmount()),
+                user);
+
+        return this.orderService.executeSell(orderData, user);
     }
 
     @Override
@@ -53,13 +80,13 @@ public class PortfolioServiceImpl implements PortfolioService {
     }
 
     @Override
-    public void getPositions(AssetType assetType, User user) {
-
+    public Position getPositions(AssetType assetType, User user) {
+        return this.portfolioRepository.getPositions(assetType, user);
     }
 
     @Override
-    public void getOrders(AssetType assetType, User user) {
-
+    public Order getOrders(AssetType assetType, User user) {
+        return null;
     }
 
     @Override

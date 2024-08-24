@@ -1,5 +1,7 @@
 package com.lld.stockbroker.model;
 
+import java.util.Objects;
+
 public class Company {
     private String name;
     private Sector sector;
@@ -48,6 +50,18 @@ public class Company {
 
     public void setCompanyGrowth(CompanyGrowth companyGrowth) {
         this.companyGrowth = companyGrowth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Company company)) return false;
+        return Objects.equals(getSector(), company.getSector()) && Objects.equals(getCompanyTicker(), company.getCompanyTicker());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSector(), getCompanyTicker());
     }
 
     @Override

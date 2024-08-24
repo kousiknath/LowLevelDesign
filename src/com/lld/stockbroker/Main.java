@@ -20,15 +20,18 @@ public class Main {
         Sector sector2 = new Sector(SectorType.IT);
         Sector sector3 = new Sector(SectorType.HEALTH_CARE);
 
-        CompanyTicker companyTicker1 = new CompanyTicker("HDFCBANK");
+        Exchange nseExchange = new Exchange("NSE");
+        Exchange nasdaqExchange = new Exchange("NSE");
+
+        CompanyTicker companyTicker1 = new CompanyTicker("HDFCBANK", nseExchange);
         Company company1 = new Company("HDFC Bank", sector1, companyTicker1);
         exchangeService.registerCompany(company1);
 
-        CompanyTicker companyTicker2 = new CompanyTicker("MSFT");
+        CompanyTicker companyTicker2 = new CompanyTicker("MSFT", nasdaqExchange);
         Company company2 = new Company("Microsoft", sector2, companyTicker2);
         exchangeService.registerCompany(company2);
 
-        CompanyTicker companyTicker3 = new CompanyTicker("APOLLO");
+        CompanyTicker companyTicker3 = new CompanyTicker("APOLLO", nseExchange);
         Company company3 = new Company("Apollo", sector3, companyTicker3);
         exchangeService.registerCompany(company3);
 
@@ -50,6 +53,25 @@ public class Main {
                 AssetType.EQUITY); // TODO: Check BuyingStrategy
         Order order = portfolioService.buy(orderData, user);
         System.out.println("Order placed = " + order);
+        System.out.println("Positions when the first BUY order is placed: " + portfolioService.getPositions(AssetType.EQUITY, user));
+
+        System.out.println("Repeating the same order but with more quantity");
+        orderData = new OrderData(company1,
+                new MarketOrderStrategy(
+                        company1.getCompanyTicker().getLatestPrice().getAmount() * 5, 5),
+                AssetType.EQUITY); // TODO: Check BuyingStrategy
+        order = portfolioService.buy(orderData, user);
+        System.out.println("Order placed = " + order);
+        System.out.println("Positions when the second BUY order is placed: " + portfolioService.getPositions(AssetType.EQUITY, user));
+
+        System.out.println("Executing a SELL");
+        orderData = new OrderData(company1,
+                new MarketOrderStrategy(
+                        company1.getCompanyTicker().getLatestPrice().getAmount() * 2, 2),
+                AssetType.EQUITY); // TODO: Check BuyingStrategy
+        order = portfolioService.sell(orderData, user);
+        System.out.println("Order placed = " + order);
+        System.out.println("Positions when the first SELL order is placed: " + portfolioService.getPositions(AssetType.EQUITY, user));
 
         System.out.println("Holdings when order not executed yet: " + portfolioService.getHoldings(AssetType.EQUITY, user));
 

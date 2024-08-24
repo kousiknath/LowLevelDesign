@@ -7,5 +7,5 @@ import com.lld.stockbroker.model.User;
 
 public interface OrderService {
     Order executeBuy(OrderData orderData, User user) throws PortfolioException;
-    Order executeSell(OrderData orderData, User user);
+    Order executeSell(OrderData orderData, User user) throws PortfolioException;
 }
