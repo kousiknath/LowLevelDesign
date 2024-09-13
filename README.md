@@ -20,10 +20,11 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 16. Leaderboard
 17. Elevator
 18. Stock Broker (Zerodha)
+19. 
 
 
 ## Planned (In no particular order)
-1. File System
+1. Task Management System
 2. Social media news feed
 3. Skyscanner Flights
 4. Stripe
@@ -47,6 +48,4 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 23. Auction system
 24. Rule Engine
 25. PubSub system
-26. Task Management System
-29. Snake and Ladder
-30. 
+26. 
