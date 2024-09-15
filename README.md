@@ -1,5 +1,5 @@
 # LowLevelDesign
-Various Low Level Object-Oriented System Design problems are discussed in this space.
+Various Low-Level Object-Oriented System Design problems are discussed in this space.
 
 ## Already Implemented
 1. Message broker like Kafka
@@ -20,7 +20,9 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 16. Leaderboard
 17. Elevator
 18. Stock Broker (Zerodha)
-19. 
+19. Pizza Pricing
+20. 
+
 
 
 ## Planned (In no particular order)
@@ -35,17 +37,23 @@ Various Low Level Object-Oriented System Design problems are discussed in this s
 9. Crickbuzz / ESPN 
 10. RedBus
 11. Splitwise
-13. Traffic control system
-14. Badge Swipe / Access system
-15. In-memory database
-16. Database Sharding Simulation
-17. Online food delivery fleet
-18. Vending machine
-19. Airbnb
-20. Airport Management System
-21. Uber ride matching system
-22. Stack Overflow
-23. Auction system
-24. Rule Engine
-25. PubSub system
-26. 
+12. Traffic control system
+13. Badge Swipe / Access system
+14. In-memory database
+15. Database Sharding Simulation
+16. Online food delivery fleet
+17. Vending machine
+18. Airbnb
+19. Airport Management System
+20. Uber ride matching system
+21. Stack Overflow
+22. Auction system
+23. Rule Engine
+24. PubSub system
+25. Chess
+26. Inventory Management System
+27. Tic-tac-toe
+28. Connect-Four game
+29. File System
+30. Snake and Ladder
+31. Snake game
