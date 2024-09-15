@@ -52,8 +52,4 @@ Various Low-Level Object-Oriented System Design problems are discussed in this s
 24. PubSub system
 25. Chess
 26. Inventory Management System
-27. Tic-tac-toe
-28. Connect-Four game
-29. File System
-30. Snake and Ladder
-31. Snake game
+27. 
