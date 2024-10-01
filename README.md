@@ -20,8 +20,12 @@ Various Low-Level Object-Oriented System Design problems are discussed in this s
 16. Leaderboard
 17. Elevator
 18. Stock Broker (Zerodha)
-19. Pizza Pricing
-20. 
+19. Pizza Pricing 
+20. Tic-tac-toe
+21. Connect-Four game
+22. File System
+23. Snake and Ladder
+24. Snake game
 
 
 
@@ -51,9 +55,5 @@ Various Low-Level Object-Oriented System Design problems are discussed in this s
 23. Rule Engine
 24. PubSub system
 25. Chess
-26. Inventory Management System
-27. Tic-tac-toe
-28. Connect-Four game
-29. File System
-30. Snake and Ladder
-31. Snake game
+26. Inventory Management System 
+27. SQL Query Filtering
