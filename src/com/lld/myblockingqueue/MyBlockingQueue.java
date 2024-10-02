@@ -30,9 +30,8 @@ public class MyBlockingQueue<E> {
     public void put(E item) throws InterruptedException {
         Objects.requireNonNull(item);
 
+        lock.lock();
         try {
-            lock.lock();
-
             while (size.get() == capacity) {
                 canPut.await();
             }
@@ -48,9 +47,8 @@ public class MyBlockingQueue<E> {
     }
 
     public E get() throws InterruptedException {
+        lock.lock();
         try {
-            lock.lock();
-
             while (size.get() == 0) {
                 canTake.await();
             }

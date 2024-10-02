@@ -1,7 +1,5 @@
 package com.lld.myblockingqueue;
 
-import java.util.Random;
-
 public class Producer implements Runnable {
     private MyBlockingQueue<Integer> myBlockingQueue;
 
