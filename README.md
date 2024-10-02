@@ -57,3 +57,4 @@ Various Low-Level Object-Oriented System Design problems are discussed in this s
 25. Chess
 26. Inventory Management System 
 27. SQL Query Filtering
+28. Multithreaded producer consumer with graceful shutdown
