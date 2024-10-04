@@ -1,4 +1,4 @@
-package com.lld.delayedscheduler;
+package com.lld.delayedscheduler.scheduler;
 
 public class SharedVariable {
     private volatile boolean stop;

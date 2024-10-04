@@ -1,4 +1,4 @@
-package com.lld.delayedscheduler;
+package com.lld.delayedscheduler.queue;
 
 import java.util.PriorityQueue;
 
