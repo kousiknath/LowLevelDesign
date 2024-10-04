@@ -1,4 +1,4 @@
-package com.lld.delayedscheduler;
+package com.lld.delayedscheduler.scheduler;
 
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;

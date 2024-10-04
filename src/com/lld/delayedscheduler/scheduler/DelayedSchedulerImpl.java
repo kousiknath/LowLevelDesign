@@ -1,25 +1,21 @@
-package com.lld.delayedscheduler;
+package com.lld.delayedscheduler.scheduler;
 
+import java.util.concurrent.*;
 
-import java.util.concurrent.Delayed;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
-public class PriorityQueueBasedDelayedScheduler implements DelayedScheduler {
-    private CustomQueue<Delayed> queue;
+public class DelayedSchedulerImpl implements DelayedScheduler {
+    private DelayQueue<Delayed> queue;
     private ExecutorService executorService;
     private SharedVariable sharedVariable;
 
-    public PriorityQueueBasedDelayedScheduler() {
-        this.queue = new PriorityQueueBasedBlockingQueue<>();
+    public DelayedSchedulerImpl() {
+        this.queue = new DelayQueue<>();
         this.executorService = Executors.newFixedThreadPool(10);
         this.sharedVariable = new SharedVariable();
-        this.executorService.submit(new TaskRunner2(this.queue, this.executorService, this.sharedVariable));
+        this.executorService.submit(new TaskRunner(this.queue, this.executorService, this.sharedVariable));
     }
 
     @Override
-    public void schedule(Runnable task, long delayMillis) throws InterruptedException {
+    public void schedule(Runnable task, long delayMillis) {
         DelayedTask delayedTask = new DelayedTask(task, delayMillis);
         this.queue.add(delayedTask);
     }
@@ -39,10 +35,10 @@ public class PriorityQueueBasedDelayedScheduler implements DelayedScheduler {
             // to forcefully interrupt all the current threads.
             // If currently running threads throw `RunTimeException` once interrupted,
             // the system will shut down completely else it will still keep on running
-            if (!this.executorService.awaitTermination(30, TimeUnit.SECONDS)) {
+            if (!this.executorService.awaitTermination(1, TimeUnit.MINUTES)) {
                 this.executorService.shutdownNow();
 
-                if (!this.executorService.awaitTermination(30, TimeUnit.SECONDS)) {
+                if (!this.executorService.awaitTermination(1, TimeUnit.MINUTES)) {
                     System.out.println("Not stopped");
                 }
             }
@@ -53,17 +49,17 @@ public class PriorityQueueBasedDelayedScheduler implements DelayedScheduler {
     }
 
     @Override
-    public synchronized int pendingTasks() {
+    public int pendingTasks() {
         return this.queue.size();
     }
 }
 
-class TaskRunner2 implements Runnable {
-    private CustomQueue<Delayed> queue;
+class TaskRunner implements Runnable {
+    private DelayQueue<Delayed> queue;
     private ExecutorService executorService;
     private SharedVariable sharedVariable;
 
-    public TaskRunner2(CustomQueue<Delayed> queue, ExecutorService executorService, SharedVariable sharedVariable) {
+    public TaskRunner(DelayQueue<Delayed> queue, ExecutorService executorService, SharedVariable sharedVariable) {
         this.queue = queue;
         this.executorService = executorService;
         this.sharedVariable = sharedVariable;
@@ -72,16 +68,10 @@ class TaskRunner2 implements Runnable {
     @Override
     public void run() {
         while (!this.sharedVariable.isStop()) {
-            DelayedTask delayedTask;
+            DelayedTask task = (DelayedTask) this.queue.poll();
 
-            try {
-                delayedTask = (DelayedTask) this.queue.poll();
-                if (delayedTask != null) {
-                    this.executorService.submit(delayedTask.getTask());
-                }
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                throw new RuntimeException(e);
+            if (task != null) {
+                this.executorService.submit(task.getTask());
             }
         }
     }
