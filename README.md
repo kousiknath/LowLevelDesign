@@ -29,6 +29,7 @@ Various Low-Level Object-Oriented System Design problems are discussed in this s
 25. Multithreaded producer consumer with graceful shutdown
 26. Thread pool
 27. Delayed Scheduler
+28. Inverted Index
 
 
 
