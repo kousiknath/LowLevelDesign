@@ -63,4 +63,6 @@ Various Low-Level Object-Oriented System Design problems are discussed in this s
 27. SQL Query Filtering
 28. Hotel Inventory Booking System
 29. JIRA Board
-30. 
+30. Amazon Locker
+31. Reentrant Lock
+32. Distributed Scheduler

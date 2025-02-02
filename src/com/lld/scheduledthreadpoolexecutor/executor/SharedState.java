@@ -27,9 +27,9 @@ public class SharedState {
     }
 
     public void enqueue(Task task) throws InterruptedException {
-        try {
-            this.lock.lock();
+        this.lock.lock();
 
+        try {
             while (this.size.get() == MAX_TASKS) {
                 this.canAdd.await();
             }
@@ -44,9 +44,9 @@ public class SharedState {
     }
 
     public Task dequeue(Predicate<Task> predicate) throws InterruptedException {
-        try {
-            this.lock.lock();
+        this.lock.lock();
 
+        try {
             while (this.size.get() == 0) {
                 this.canRemove.await();
             }
